@@ -9,9 +9,10 @@ git clone git@github.com:panther-labs/panther-content-template.git my-panther-co
 cd my-panther-content
 ```
 
-Reset the git history:
+Delete `CODEOWNERS` and reset the git history:
 ```shell
 rm -rf .git
+rm .github/CODEOWNERS
 git init
 ```
 
