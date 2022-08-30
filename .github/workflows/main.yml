@@ -1,0 +1,37 @@
+name: main
+on:
+  push:
+    branches: [main]
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r requirements.txt
+
+      - name: fmt
+        run: make ci_fmt
+
+      - name: lint
+        run: make ci_lint
+
+      - name: test
+        run: make ci_test
+
+      - name: SDK Run
+        run: python -m panther_content
+
+      - name: SDK Upload
+        run: python .github/script/sdkupload.py
+        env:
+          API_TOKEN: ${{ secrets.PANTHER_API_TOKEN }}
+          API_ENDPOINT: ${{ secrets.PANTHER_API_URL }}

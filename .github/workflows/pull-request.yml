@@ -1,0 +1,35 @@
+name: pr
+on:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      - name: Install dependencies
+        run: |
+          pip3 install -r requirements.txt
+
+      - name: fmt
+        run: make ci_fmt
+
+      - name: Commit format changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: automatic formatting
+
+      - name: lint
+        run: make ci_lint
+
+      - name: test
+        run: make ci_test
+
+      - name: SDK Run
+        run: python -m panther_content
