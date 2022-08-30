@@ -4,6 +4,8 @@ import json
 import base64
 import requests
 
+# Replace this with PAT command once it's available
+
 with open('.panther/panther-config-cache') as f:
     contents = f.read()
 
@@ -26,5 +28,5 @@ with open('.panther/panther-config-cache') as f:
     print("RESPONSE BODY:", resp.json())
 
     resp_data = json.loads(resp.text)
-    if resp_data.get('errors', None) != None:
+    if resp_data.get('errors', None) is not None:
         sys.exit(1)
