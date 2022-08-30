@@ -7,16 +7,16 @@ import requests
 with open('.panther/panther-config-cache') as f:
     contents = f.read()
 
-    query =  'mutation SDKUpload(){ uploadDetectionEntities(input:{data:"'
+    query = 'mutation SDKUpload(){ uploadDetectionEntities(input:{data:"'
     query += base64.b64encode(contents.encode('utf-8')).decode('utf-8')
-    query += '", mode: CONFIG_SDK}) { queries { modified new total } } }'
+    query += '", mode: CONFIG_SDK}) { rules { modified new total } queries { modified new total } } }'
 
-    req = { 'operationName': 'SDKUpload', 'query': query }
+    req = {'operationName': 'SDKUpload', 'query': query}
 
     resp = requests.post(
         os.environ["API_ENDPOINT"],
-        json = req,
-        headers = { "X-API-Key" : os.environ["API_TOKEN"] },
+        json=req,
+        headers={"X-API-Key": os.environ["API_TOKEN"]},
     )
 
     if resp.status_code != 200:
