@@ -30,8 +30,10 @@ jobs:
       - name: SDK Run
         run: python -m panther_content
 
-      - name: SDK Upload
-        run: python .github/script/sdkupload.py
-        env:
-          API_TOKEN: ${{ secrets.PANTHER_API_TOKEN }}
-          API_ENDPOINT: ${{ secrets.PANTHER_API_URL }}
+      # Uncomment once secrets are configured
+      
+      # - name: SDK Upload
+      #   run: python .github/script/sdkupload.py
+      #   env:
+      #     API_TOKEN: ${{ secrets.PANTHER_API_TOKEN }}
+      #     API_ENDPOINT: ${{ secrets.PANTHER_API_URL }}
