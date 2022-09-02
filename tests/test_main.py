@@ -10,5 +10,5 @@ class TestMain(unittest.TestCase):
         self.assertIsInstance(okta_api_key_created, detection.Rule)
 
     def test_vulnerable_port_rules(self) -> None:
-        self.assertIsInstance(vulnerable_port_rules, typing.List[detection.Rule])
+        self.assertIsInstance(vulnerable_port_rules, typing.List)
         self.assertEqual(len(vulnerable_port_rules), 3)
