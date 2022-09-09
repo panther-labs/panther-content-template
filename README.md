@@ -27,7 +27,7 @@ While any directory structure that implements a valid python module will work, t
 ```
 /panther_content
     /__main__.py   # module entry point
-    
+
     /filters       # reusable filters for use in Panther Rules, Policies and Scheduled Rules
     /rules         # Panther Rule content
     /queries       # Panther Saved/Scheduled Query content
@@ -39,6 +39,10 @@ While any directory structure that implements a valid python module will work, t
 
 /.github           # example automation pipeline using GitHub Actions
 ```
+
+### Importing & updating content
+You can import & update filters, detections and other `panther_config`-based content via PIP modules. As with any other PIP module, this can be done by editing the `requirements.txt` file. Panther-authored content follows [semantic versioning](semver.org). Please refer to the (Py-Pkgs guidance)[https://py-pkgs.org/07-releasing-versioning.html] on how to use this file and to decide how to version. 
+
 
 ## Using Automation
 This repo includes configuration for GitHub Actions in `.github/workflows`. You can either use these as-is or use them as a reference while setting up your own automation pipeline.
