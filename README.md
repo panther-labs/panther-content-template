@@ -20,7 +20,7 @@ make init
 make shell
 ```
 
-4) Run the install command to bootstrap the repository's dependencies. You can confirm this was successful by running the tests.
+4) Run the install command to bootstrap the repository's dependencies. If you are running in docker, there may be warnings about running as a root user. These can be ignored. You can confirm this was successful by running the tests.
 ```shell
 make install
 make test
