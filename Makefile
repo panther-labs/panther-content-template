@@ -10,6 +10,8 @@ lint::    fmt ci_lint
 test::    fmt ci_lint ci_test
 clean::   venv_rm
 
+.SILENT: git_reset
+
 # Targets for CI
 ci_install::
 	python -m pip install --upgrade pip
@@ -38,6 +40,9 @@ docker_shell:
 	docker run --rm -it -v "$(mount_dir):/$(cur_dir)" --workdir "/$(cur_dir)" python:3.9 /bin/bash
 
 git_reset:
+	printf "%s " "This will reset the repository git history. Press ENTER to continue"
+	read ans
 	rm -rf .git
 	rm .github/CODEOWNERS
 	git init
+	echo "done!"
