@@ -6,6 +6,8 @@ Panther Config SDK template repo for content modules.
 1) Clone this repo
 ```shell
 git clone git@github.com:panther-labs/panther-content-template.git my-panther-content
+```
+```shell
 cd my-panther-content
 ```
 
@@ -23,6 +25,8 @@ make shell
 4) Run the install command to bootstrap the repository's dependencies. If you are running in docker, there may be warnings about running as a root user. These can be ignored. You can confirm this was successful by running the tests.
 ```shell
 make install
+```
+```shell
 make test
 ```
 
