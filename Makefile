@@ -1,11 +1,20 @@
+cur_dir   := $(shell basename $(CURDIR))
+mount_dir := $(PWD)
+
 # Targets for local development
+init::    git_reset
+shell::   docker_shell
 install:: utl_activate ci_install
-fmt::     install ci_fmt
+fmt::     ci_fmt
 lint::    fmt ci_lint
 test::    fmt ci_lint ci_test
+clean::   venv_rm
+
+.SILENT: git_reset
 
 # Targets for CI
 ci_install::
+	python -m pip install --upgrade pip
 	pip3 install -qr requirements.txt
 
 ci_fmt::
@@ -17,9 +26,23 @@ ci_lint::
 ci_test::
 	nosetests -v --with-coverage --cover-package=panther_content
 
-# Utility targets
+# Other targets
 venv:
-	python3 -m venv venv
+	python3.9 -m venv venv
 
 utl_activate: venv
 	. venv/bin/activate
+
+venv_rm:
+	rm -rf venv
+
+docker_shell:
+	docker run --rm -it -v "$(mount_dir):/$(cur_dir)" --workdir "/$(cur_dir)" python:3.9 /bin/bash
+
+git_reset:
+	printf "%s " "This will reset the repository git history. Press ENTER to continue"
+	read ans
+	rm -rf .git
+	rm .github/CODEOWNERS
+	git init
+	echo "done!"
