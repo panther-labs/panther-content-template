@@ -16,7 +16,7 @@ cd my-panther-content
 make init
 ```
 
-3) Optionally, start a docker shell to run python 3.9. If docker is not available or you prefer to run on your host operating system, you can skip this step. Pleasure ensure your machine has a proper Python 3.9 environment with `pip` installed.
+3) Optionally, start a docker shell to run python 3.9. If docker is not available or you prefer to run on your host operating system, you can skip this step. Please ensure your machine has a proper Python 3.9 environment with `pip` installed.
 
 ```shell
 make shell
