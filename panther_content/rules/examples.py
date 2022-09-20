@@ -2,7 +2,6 @@ from typing import List, Dict
 from panther_config import detection
 from panther_utils import match_filters
 
-__all__ = ["inbound_ssh_attempts", "for_vulnerable_ports"]
 
 # create a single rule
 def inbound_ssh_attempts() -> detection.Rule:

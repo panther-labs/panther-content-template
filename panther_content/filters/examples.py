@@ -1,7 +1,5 @@
 from panther_config import detection, PantherEvent
 
-__all__ = ["always_true", "is_close_to_pi"]
-
 
 # Simple custom filter definition
 def always_true() -> detection.PythonFilter:
