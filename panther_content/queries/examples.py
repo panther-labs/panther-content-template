@@ -1,7 +1,5 @@
 from panther_config import query
 
-__all__ = ["select_one"]
-
 
 # create a saved query
 def select_one(enabled: bool = True) -> query.Query:
