@@ -30,15 +30,16 @@ def find_yaml_files(path: str) -> list[str]:
 def convert_yaml_files(path: str, files: list[str], dry_run: bool = True) -> list[str]:
     out_files: list[str] = []
 
-    files = files[:5]
     for file in files:
         path_split = file.split(path)
         cwd = path_split[0].strip(os.sep)
         old_loc = path_split[1].strip(os.sep)
         old_loc_split = old_loc.split(os.sep)
 
-        out_file_dir = os.sep.join([cwd, *old_loc_split[:-1]])
-        out_file = os.sep.join([out_file_dir, old_loc_split[-1]]).replace('.yml', '.py')
+        out_file_dir = os.sep.join(old_loc_split[:-1])
+        out_file_name = old_loc_split[-1].replace('.yml', '.py')
+        out_file = os.sep.join([out_file_dir, out_file_name]).replace('-', '_')  # dashes not allowed in python imports
+        out_file = os.sep.join([cwd, out_file])
 
         if not dry_run:
             os.makedirs(out_file_dir, exist_ok=True)
@@ -48,6 +49,7 @@ def convert_yaml_files(path: str, files: list[str], dry_run: bool = True) -> lis
             else:
                 out_files.append(out_file)
         else:
+            print('Would have run:\n', f'panther_classic_converter {file} -o {out_file}\n')
             out_files.append(out_file)
 
     return out_files
