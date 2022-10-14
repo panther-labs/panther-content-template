@@ -10,6 +10,9 @@ git clone git@github.com:panther-labs/panther-content-template.git my-panther-co
 ```shell
 cd my-panther-content
 ```
+```shell
+git checkout usability-session
+```
 
 2) Run the install command to bootstrap the repository's dependencies. Please ensure your machine has a proper Python 3.9 environment with `pip` installed. You can confirm this was successful by running the tests.
 ```shell
