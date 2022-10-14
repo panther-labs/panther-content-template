@@ -3,7 +3,7 @@ Panther Config SDK template repo for content modules.
 
 
 ## Setup a new repo
-1) Clone this repo
+1) Clone this repo and checkout the `usability-session` branch
 ```shell
 git clone git@github.com:panther-labs/panther-content-template.git my-panther-content
 ```
@@ -11,12 +11,7 @@ git clone git@github.com:panther-labs/panther-content-template.git my-panther-co
 cd my-panther-content
 ```
 
-2) Initialize the repo. This will remove the existing git data, delete `CODEOWNERS` and start a new git repository:
-```shell
-make init
-```
-
-3) Run the install command to bootstrap the repository's dependencies. Please ensure your machine has a proper Python 3.9 environment with `pip` installed. You can confirm this was successful by running the tests.
+2) Run the install command to bootstrap the repository's dependencies. Please ensure your machine has a proper Python 3.9 environment with `pip` installed. You can confirm this was successful by running the tests.
 ```shell
 make install
 ```
