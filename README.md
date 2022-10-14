@@ -16,13 +16,7 @@ cd my-panther-content
 make init
 ```
 
-3) Optionally, start a docker shell to run python 3.9. If docker is not available or you prefer to run on your host operating system, you can skip this step. Please ensure your machine has a proper Python 3.9 environment with `pip` installed.
-
-```shell
-make shell
-```
-
-4) Run the install command to bootstrap the repository's dependencies. If you are running in docker, there may be warnings about running as a root user. These can be ignored. You can confirm this was successful by running the tests.
+3) Run the install command to bootstrap the repository's dependencies. Please ensure your machine has a proper Python 3.9 environment with `pip` installed. You can confirm this was successful by running the tests.
 ```shell
 make install
 ```
@@ -37,8 +31,6 @@ While any directory structure that implements a valid python module will work, t
 /panther_content
     /__main__.py   # module entry point
 
-    /filters       # reusable filters for use in Panther Rules, Policies and Scheduled Rules
-    /rules         # Panther Rule content
     /queries       # Panther Saved/Scheduled Query content
 
 /tests             # directory structure mirroring "panther_content" that includes unit tests.

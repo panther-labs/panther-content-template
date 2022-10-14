@@ -3,8 +3,8 @@ mount_dir := $(PWD)
 
 # Targets for local development
 init::    git_reset
-shell::   docker_shell
-install:: utl_activate ci_install
+shell::   pipenv shell
+install:: venv utl_activate ci_install
 fmt::     ci_fmt
 lint::    fmt ci_lint
 test::    fmt ci_lint ci_test
