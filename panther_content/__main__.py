@@ -16,15 +16,14 @@ always_true_detection = detection.Rule(
     filters=[detection.PythonFilter(func=always_true)],
 )
 
+# Step 2: Write Your Rule Here
+
+
 # Example rule that relies on panther-provided content, but with a custom reference
 okta_api_key_created = okta.rules.api_key_created(
     overrides=detection.RuleOptions(
         reference="https://example.com/wiki/How_to_respond_to_okta_rules_created"
     ),
 )
-
-
-# Step 2: Write Your Rule Here
-
 
 # Step 4: Write customized okta_api_key_revoked
