@@ -6,6 +6,7 @@ import panther_okta as okta
 def always_true(_: PantherEvent) -> bool:
     return True
 
+
 # Example Rule, My.Example.Rule
 always_true_detection = detection.Rule(
     rule_id="My.Example.Rule",
@@ -27,4 +28,3 @@ okta_api_key_created = okta.rules.api_key_created(
 
 
 # Step 4: Write customized okta_api_key_revoked
-
