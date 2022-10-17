@@ -6,7 +6,7 @@ import panther_okta as okta
 def always_true(_: PantherEvent) -> bool:
     return True
 
-# Creates a Rule, My.Example.Rule
+# Example Rule, My.Example.Rule
 always_true_detection = detection.Rule(
     rule_id="My.Example.Rule",
     enabled=False,
@@ -15,17 +15,16 @@ always_true_detection = detection.Rule(
     filters=[detection.PythonFilter(func=always_true)],
 )
 
-# Create another Rule that detects when an AWS.CloudTrail event's field, eventName, is DisassociateWebACL
-
-
-# Create a rule that relies on panther-provided content, but with a custom reference
+# Example rule that relies on panther-provided content, but with a custom reference
 okta_api_key_created = okta.rules.api_key_created(
     overrides=detection.RuleOptions(
         reference="https://example.com/wiki/How_to_respond_to_okta_rules_created"
     ),
 )
 
-# Explore the available detections in the panther_okta package
-#
-# Create another rule for the okta api key revoked detection with a custom severity
+
+# Step 2: Write Your Rule Here
+
+
+# Step 4: Write customized okta_api_key_revoked
 
