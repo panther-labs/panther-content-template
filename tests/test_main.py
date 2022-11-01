@@ -1,7 +1,7 @@
 import typing
 import unittest
 
-from panther_config import detection
+from panther_sdk import detection
 from panther_content.__main__ import okta_api_key_created, vulnerable_port_rules
 
 

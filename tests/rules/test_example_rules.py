@@ -1,4 +1,4 @@
-from panther_config import detection
+from panther_sdk import detection
 import unittest
 
 from panther_content.rules import examples

@@ -1,7 +1,7 @@
 from . import rules as local_rules
 from . import filters as local_filters
 
-from panther_config import detection
+from panther_sdk import detection
 import panther_okta as okta
 
 # install a Panther provided detection with optional overrides

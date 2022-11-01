@@ -1,4 +1,4 @@
-from panther_config import detection, testing, PantherEvent
+from panther_sdk import detection, testing, PantherEvent
 
 from panther_content.filters import examples
 

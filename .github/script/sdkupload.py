@@ -6,12 +6,12 @@ import requests
 
 # Replace this with PAT command once it's available
 
-with open('.panther/panther-config-cache') as f:
+with open('.panther/panther-sdk-cache') as f:
     contents = f.read()
 
     query = 'mutation SDKUpload(){ uploadDetectionEntities(input:{data:"'
     query += base64.b64encode(contents.encode('utf-8')).decode('utf-8')
-    query += '", mode: CONFIG_SDK}) { rules { modified new total } queries { modified new total } } }'
+    query += '", mode: PANTHER_SDK}) { rules { modified new total } queries { modified new total } } }'
 
     req = {'operationName': 'SDKUpload', 'query': query}
 
