@@ -52,4 +52,4 @@ jobs:
         run: make ci_test
 
       - name: SDK Run
-        run: python -m panther_content
+        run: make ci_run_sdk

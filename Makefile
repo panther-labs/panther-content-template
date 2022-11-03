@@ -29,6 +29,9 @@ ci_install:
 ci_sync:
 	pipenv sync --dev
 
+ci_run_sdk:
+	pipenv run python -m panther_content
+
 ci_upload:
 	pipenv run panther_analysis_tool sdk upload
 
