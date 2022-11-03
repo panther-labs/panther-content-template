@@ -17,8 +17,7 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
-        run: |
-          make ci_install
+        run: make ci_install
 
       - name: fmt
         run: make ci_fmt
@@ -45,8 +44,7 @@ jobs:
         run: pip install pipenv
 
       - name: Install dependencies
-        run: |
-          make ci_install
+        run: make ci_install
 
       - name: test
         run: make ci_test
