@@ -1,5 +1,5 @@
 # panther-content-template
-Panther Config SDK template repo for content modules.
+Panther SDK template repo for content modules.
 
 
 ## Setup a new repo
@@ -50,7 +50,7 @@ While any directory structure that implements a valid python module will work, t
 ```
 
 ### Importing & updating content
-You can import & update filters, detections and other `panther_config`-based content via PIP modules. As with any other PIP module, this can be done by editing the `requirements.txt` file. Panther-authored content follows [semantic versioning](semver.org). Please refer to the (Py-Pkgs guidance)[https://py-pkgs.org/07-releasing-versioning.html] on how to use this file and to decide how to version. 
+You can import & update filters, detections and other `panther_sdk`-based content via PIP modules. As with any other PIP module, this can be done by editing the `requirements.txt` file. Panther-authored content follows [semantic versioning](semver.org). Please refer to the (Py-Pkgs guidance)[https://py-pkgs.org/07-releasing-versioning.html] on how to use this file and to decide how to version. 
 
 
 ## Using Automation
@@ -58,4 +58,4 @@ This repo includes configuration for GitHub Actions in `.github/workflows`. You 
 
 
 ## Publish as a content library
-If you want to make your `panther_config` based content available to other repositories, you can do so by publishing to [PyPi](pypi.org) or another PIP-based pacakge host. As with any published PIP package, you will have to include configuration to do so. See [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/) for more details. You can refer to the source code of [panther-utils](https://github.com/panther-labs/panther-utils) for a Panther-provided example of doing this.
+If you want to make your `panther_sdk` based content available to other repositories, you can do so by publishing to [PyPi](pypi.org) or another PIP-based pacakge host. As with any published PIP package, you will have to include configuration to do so. See [Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/) for more details. You can refer to the source code of [panther-utils](https://github.com/panther-labs/panther-utils) for a Panther-provided example of doing this.

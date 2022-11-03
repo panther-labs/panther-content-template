@@ -1,5 +1,5 @@
 from typing import List, Dict
-from panther_config import detection
+from panther_sdk import detection
 from panther_utils import match_filters
 
 

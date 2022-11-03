@@ -3,42 +3,42 @@ mount_dir := $(PWD)
 
 # Targets for local development
 init::    git_reset
-shell::   docker_shell
-install:: utl_activate ci_install
+shell::   pipenv shell
+install:: ci_install 
 fmt::     ci_fmt
 lint::    fmt ci_lint
 test::    fmt ci_lint ci_test
-clean::   venv_rm
+sync::    ci_sync
+upload::  ci_upload
 
 .SILENT: git_reset
 
 # Targets for CI
-ci_install::
-	python -m pip install --upgrade pip
-	pip3 install -qr requirements.txt
-
 ci_fmt::
-	black panther_content tests
+	pipenv run black panther_content tests
 
 ci_lint::
-	mypy --config-file mypy.ini panther_content tests
+	pipenv run mypy --config-file mypy.ini panther_content tests
 
 ci_test::
-	nosetests -v --with-coverage --cover-package=panther_content
+	pipenv run nosetests -v --with-coverage --cover-package=panther_content
 
-# Other targets
-venv:
-	python3.9 -m venv venv
+ci_install:
+	pipenv install --dev
 
-utl_activate: venv
-	. venv/bin/activate
+ci_sync:
+	pipenv sync --dev
 
-venv_rm:
-	rm -rf venv
+ci_run_sdk:
+	pipenv run python -m panther_content
+
+ci_upload:
+	pipenv run panther_analysis_tool sdk upload
 
 docker_shell:
 	docker run --rm -it -v "$(mount_dir):/$(cur_dir)" --workdir "/$(cur_dir)" python:3.9 /bin/bash
 
+# Other targets
 git_reset:
 	printf "%s " "This will reset the repository git history. Press ENTER to continue"
 	read ans
