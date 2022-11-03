@@ -33,7 +33,7 @@ jobs:
       # Uncomment once secrets are configured
       
       # - name: SDK Upload
-      #   run: python .github/script/sdkupload.py
+      #   run: make ci_upload
       #   env:
       #     API_TOKEN: ${{ secrets.PANTHER_API_TOKEN }}
       #     API_ENDPOINT: ${{ secrets.PANTHER_API_URL }}
