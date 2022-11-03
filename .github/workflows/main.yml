@@ -14,9 +14,12 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install pipenv
+        run: pip install pipenv
+
       - name: Install dependencies
         run: |
-          pip3 install -r requirements.txt
+          make ci_install
 
       - name: fmt
         run: make ci_fmt
