@@ -13,9 +13,11 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install pipenv
+        run: pip install pipenv
+
       - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
+        run: make ci_install
 
       - name: fmt
         run: make ci_fmt
@@ -38,12 +40,14 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install pipenv
+        run: pip install pipenv
+
       - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
+        run: make ci_install
 
       - name: test
         run: make ci_test
 
       - name: SDK Run
-        run: python -m panther_content
+        run: make ci_run_sdk

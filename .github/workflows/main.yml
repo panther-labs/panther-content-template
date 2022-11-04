@@ -14,9 +14,11 @@ jobs:
         with:
           python-version: "3.9"
 
+      - name: Install pipenv
+        run: pip install pipenv
+
       - name: Install dependencies
-        run: |
-          pip3 install -r requirements.txt
+        run: make ci_install
 
       - name: fmt
         run: make ci_fmt
@@ -28,12 +30,12 @@ jobs:
         run: make ci_test
 
       - name: SDK Run
-        run: python -m panther_content
+        run: make ci_run_sdk
 
       # Uncomment once secrets are configured
       
       # - name: SDK Upload
-      #   run: python .github/script/sdkupload.py
+      #   run: make ci_upload
       #   env:
       #     API_TOKEN: ${{ secrets.PANTHER_API_TOKEN }}
       #     API_ENDPOINT: ${{ secrets.PANTHER_API_URL }}

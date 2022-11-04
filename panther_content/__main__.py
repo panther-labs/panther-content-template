@@ -1,5 +1,4 @@
-from panther_core import PantherEvent
-from panther_config import detection
+from panther_sdk import detection, PantherEvent
 import panther_okta as okta
 
 # a python method that always returns True

@@ -8,7 +8,8 @@ install:: ci_install
 fmt::     ci_fmt
 lint::    fmt ci_lint
 test::    fmt ci_lint ci_test
-clean::   venv_rm
+sync::    ci_sync
+upload::  ci_upload
 
 .SILENT: git_reset
 
@@ -24,6 +25,18 @@ ci_test::
 
 ci_install:
 	pipenv install --dev
+
+ci_sync:
+	pipenv sync --dev
+
+ci_run_sdk:
+	pipenv run python -m panther_content
+
+ci_upload:
+	pipenv run panther_analysis_tool sdk upload
+
+docker_shell:
+	docker run --rm -it -v "$(mount_dir):/$(cur_dir)" --workdir "/$(cur_dir)" python:3.9 /bin/bash
 
 # Other targets
 git_reset:
