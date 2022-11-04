@@ -25,4 +25,4 @@ okta_api_key_created = okta.rules.api_key_created(
     ),
 )
 
-# Step 6: Write customized okta_api_key_revoked
+# Step 6: Write customized okta detection
