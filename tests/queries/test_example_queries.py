@@ -1,4 +1,4 @@
-from panther_config import query
+from panther_sdk import query
 import unittest
 
 from panther_content.queries import examples

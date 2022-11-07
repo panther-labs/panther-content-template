@@ -1,5 +1,4 @@
-from panther_core import PantherEvent
-from panther_config import detection
+from panther_sdk import detection, PantherEvent
 import panther_okta as okta
 
 # a python method that always returns True
@@ -26,4 +25,4 @@ okta_api_key_created = okta.rules.api_key_created(
     ),
 )
 
-# Step 6: Write customized okta_api_key_revoked
+# Step 6: Write customized okta detection
