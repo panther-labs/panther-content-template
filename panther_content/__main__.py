@@ -9,7 +9,7 @@ okta_api_key_created = okta.rules.api_key_created(
     pre_filters=[
         local_filters.always_true(),
     ],
-    overrides=detection.RuleOptions(
+    overrides=detection.RuleOverrides(
         reference="https://example.com/wiki/How_to_respond_to_okta_rules_created"
     ),
 )
