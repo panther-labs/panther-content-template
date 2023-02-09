@@ -4,15 +4,14 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-mypy = ">=0.0.0"
 black = "~=22.8"
 nose = ">=1.3"
 coverage = ">=6.4.4"
-panther_analysis_tool = ">=0.19.4"
+panther_analysis_tool = ">=0.19.5"
+mypy = "1.0.0"
 
 [packages]
 panther_sdk = ">=0.0.24"
-mypy = "*"
 panther_detections = ">=0.0.7"
 
 [requires]

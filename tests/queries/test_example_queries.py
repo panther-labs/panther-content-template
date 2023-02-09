@@ -7,4 +7,5 @@ from panther_content import custom
 
 class TestExampleQueries(unittest.TestCase):
     def test_select_one(self) -> None:
-        self.assertIsInstance(custom.queries.select_one(), query.Query)
+        select_one_query = custom.queries.select_one()
+        self.assertEqual(select_one_query.name, "Example Query")

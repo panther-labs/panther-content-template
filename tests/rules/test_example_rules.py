@@ -7,7 +7,10 @@ from panther_content import custom
 
 class TestExampleRules(unittest.TestCase):
     def test_inbound_ssh_attempts(self) -> None:
-        self.assertIsInstance(custom.rules.inbound_ssh_attempts(), detection.Rule)
+        ssh_attempts_rule = custom.rules.inbound_ssh_attempts()
+        self.assertEqual(
+            ssh_attempts_rule.rule_id, "Content.Example.AWS.ALB.SSH.Incoming"
+        )
 
     def test_for_vulnerable_ports(self) -> None:
         rules = custom.rules.for_vulnerable_ports(
