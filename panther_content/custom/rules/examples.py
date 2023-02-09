@@ -1,5 +1,6 @@
-from typing import List, Dict
-from panther_sdk import detection
+from typing import Dict, List
+
+from panther_sdk import detection, schema
 from panther_utils import match_filters
 
 
@@ -9,7 +10,7 @@ def inbound_ssh_attempts() -> detection.Rule:
         rule_id="Content.Example.AWS.ALB.SSH.Incoming",
         name="[Example] AWS ALB Incoming SSH",
         severity=detection.SeverityInfo,
-        log_types=["AWS.ALB"],
+        log_types=[schema.LogTypeAWSALB],
         filters=[match_filters.deep_equal("targetPort", 22)],
     )
 
@@ -26,7 +27,7 @@ def for_vulnerable_ports(config: Dict[str, List[int]]) -> List[detection.Rule]:
                 rule_id=f"Content.Example.AWS.ALB.{key}.Incoming",
                 name="[Example] AWS ALB Incoming SSH",
                 severity=detection.SeverityInfo,
-                log_types=["AWS.ALB"],
+                log_types=[schema.LogTypeAWSALB],
                 filters=[match_filters.deep_in("targetPort", ports)],
             )
         )

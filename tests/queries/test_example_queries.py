@@ -1,9 +1,10 @@
-from panther_sdk import query
 import unittest
 
-from panther_content.queries import examples
+from panther_sdk import query
+
+from panther_content import custom
 
 
 class TestExampleQueries(unittest.TestCase):
     def test_select_one(self) -> None:
-        self.assertIsInstance(examples.select_one(), query.Query)
+        self.assertIsInstance(custom.queries.select_one(), query.Query)

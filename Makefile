@@ -6,8 +6,8 @@ init::    git_reset
 shell::   pipenv shell
 install:: ci_install 
 fmt::     ci_fmt
-lint::    fmt ci_lint
-test::    fmt ci_lint ci_test
+lint::    ci_lint
+test::    ci_test
 sync::    ci_sync
 upload::  ci_upload
 
@@ -22,6 +22,7 @@ ci_lint::
 
 ci_test::
 	pipenv run nosetests -v --with-coverage --cover-package=panther_content
+	pipenv run panther_analysis_tool sdk test
 
 ci_install:
 	pipenv install --dev
