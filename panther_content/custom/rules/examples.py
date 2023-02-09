@@ -1,7 +1,7 @@
 from typing import Dict, List
 
+from panther_detections.utils import match_filters
 from panther_sdk import detection, schema
-from panther_utils import match_filters
 
 
 # create a single rule
