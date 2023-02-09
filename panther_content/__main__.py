@@ -1,3 +1,5 @@
+from panther_detections.providers import crowdstrike
+
 from panther_content import custom, panther_managed
 
 ## CUSTOM
@@ -22,4 +24,4 @@ custom.data_models.aws_alb()
 panther_managed.okta.use_panther_rules()
 panther_managed.okta.use_panther_queries()
 
-panther_managed.crowdstrike.use_panther_rules()
+crowdstrike.use_all_with_defaults()
