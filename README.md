@@ -41,8 +41,9 @@ Use the output above to update the .vscode/settings.json file to the appropriate
         "**/*.pyc": true,
         "**/__pycache__": true
     },
-    
-   "python.pythonPath": "/Users/lindseyw/.local/share/virtualenvs/my-panther-content-XOuSVQqp/bin/python"
+   "python.pythonPath": "<the output of `pipenv --py`>",
+   "python.terminal.activateEnvironment": true,
+   "python.analysis.symbolsHierarchyDepthLimit": 10,
 }
 ```
 
