@@ -22,6 +22,32 @@ make install
 make test
 ```
 
+3) Setup VSCode to point to the venv created by pipenv above. First, run this command in the directory where you cloned the repo:
+
+```shell
+pipenv --py
+```
+
+Use the output above to update the .vscode/settings.json file to the appropriate path. For example:
+
+```json
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.pyc": true,
+        "**/__pycache__": true
+    },
+    
+   "python.pythonPath": "/Users/lindseyw/.local/share/virtualenvs/my-panther-content-XOuSVQqp/bin/python"
+}
+```
+
+4) Open VSCode (close and reopen if already open)
+
 ### Project structure
 While any directory structure that implements a valid python module will work, this template includes a basic directory structure to provide some guidance on how to organize your content. The list below provides a brief description of this included structure:
 
