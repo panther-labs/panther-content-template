@@ -1,1 +1,1 @@
-from . import crowdstrike, okta
+from . import okta

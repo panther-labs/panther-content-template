@@ -12,7 +12,7 @@ mypy = "1.0.0"
 
 [packages]
 panther_sdk = ">=0.0.24"
-panther_detections = ">=0.0.7"
+panther_detections = ">=0.0.8"
 
 [requires]
 python_version = "3.9"
