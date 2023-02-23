@@ -13,7 +13,7 @@ pylint = "*"
 
 [packages]
 panther_sdk = "~=0.0.24"
-panther_detections = ">=0.0.7"
+panther_detections = ">=0.0.8"
 requests = "==2.28.1"
 
 [requires]
