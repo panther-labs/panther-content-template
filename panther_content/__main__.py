@@ -1,5 +1,6 @@
 from panther_sdk import detection, PantherEvent
-import panther_okta as okta
+
+import panther_detections.providers.okta as okta
 
 # a python method that always returns True
 def always_true(_: PantherEvent) -> bool:
@@ -17,10 +18,9 @@ always_true_detection = detection.Rule(
 
 # Step 4: Write Your Rule Here
 
-
 # Example rule that relies on panther-provided content, but with a custom reference
 okta_api_key_created = okta.rules.api_key_created(
-    overrides=detection.RuleOptions(
+    overrides=detection.RuleOverrides(
         reference="https://example.com/wiki/How_to_respond_to_okta_rules_created"
     ),
 )
