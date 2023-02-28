@@ -1,21 +1,19 @@
-from panther_sdk import detection, testing, PantherEvent
+from panther_sdk import PantherEvent, detection, testing
 
-from panther_content.filters import examples
+from panther_content import custom
 
 
 class TestExampleFilters(testing.PantherPythonFilterTestCase):
     def test_always_true(self) -> None:
-        f = examples.always_true()
+        f = custom.filters.always_true()
 
-        self.assertIsInstance(f, detection.PythonFilter)
         self.assertFilterIsValid(f)
 
         self.assertFilterMatches(f, PantherEvent({}))
 
     def test_is_close_to_pi(self) -> None:
-        f = examples.is_close_to_pi("num")
+        f = custom.filters.is_close_to_pi("num")
 
-        self.assertIsInstance(f, detection.PythonFilter)
         self.assertFilterIsValid(f)
 
         self.assertFilterMatches(f, PantherEvent({"num": 3.14}))

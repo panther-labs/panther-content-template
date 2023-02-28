@@ -1,15 +1,19 @@
-from panther_sdk import detection
 import unittest
 
-from panther_content.rules import examples
+from panther_sdk import detection
+
+from panther_content import custom
 
 
 class TestExampleRules(unittest.TestCase):
     def test_inbound_ssh_attempts(self) -> None:
-        self.assertIsInstance(examples.inbound_ssh_attempts(), detection.Rule)
+        ssh_attempts_rule = custom.rules.inbound_ssh_attempts()
+        self.assertEqual(
+            ssh_attempts_rule.rule_id, "Content.Example.AWS.ALB.SSH.Incoming"
+        )
 
     def test_for_vulnerable_ports(self) -> None:
-        rules = examples.for_vulnerable_ports(
+        rules = custom.rules.for_vulnerable_ports(
             {
                 "x": [1, 2],
                 "y": [3],
