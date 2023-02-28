@@ -2,5 +2,5 @@
    "python.defaultInterpreterPath": "<REPLACE_ME>",
    "python.pythonPath": "<REPLACE_ME>",
    "python.terminal.activateEnvironment": true,
-   "python.analysis.symbolsHierarchyDepthLimit": 10,
+   "python.analysis.symbolsHierarchyDepthLimit": 10
 }
